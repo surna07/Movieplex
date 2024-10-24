@@ -14,7 +14,11 @@ body {
 }
 
 header {
+
     background-color: #333;
+    display :flex;
+    
+   
     padding: 10px;
     text-align: center;
     color: #fff;
@@ -27,7 +31,7 @@ header {
 header h1 {
     margin-bottom: 5px;
     font-family: 'Helvetica', sans-serif;
-    font-size:1.6rem;
+    font-size:1.7rem;
 }
 
 nav {
@@ -186,16 +190,21 @@ display :flex;
 }
 
 #search {
-    padding: 10px;
+    padding:6.3px;
     border: 1px solid tomato;
     border-radius: 5px;
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
+    text-decoration:none;
+   position:absolute ;
+   right:10px;
+    margin: 0 auo;
     display: block;
     background-color: #333;
     color: #e0e0e0;
     outline: none;
+}
+#search:hover{
+
+background:#888;
 }
 
 #prev,
@@ -287,7 +296,7 @@ display :flex;
     width: 94%;
     height: 170px;
     overflow: hidden;
-    margin: 110px 4px 4px 10px;
+    margin: 80px 4px 4px 10px;
     background-color: #333;
     border: 1px solid black;
     border-radius: 10px;
