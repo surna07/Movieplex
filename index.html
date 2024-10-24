@@ -12,19 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="style-feedback.css">
     
-<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-<script>
-  window.OneSignalDeferred = window.OneSignalDeferred || [];
-  OneSignalDeferred.push(async function(OneSignal) {
-    await OneSignal.init({
-      appId: "62018aac-838e-4e5d-982a-bf3275808681",
-      safari_web_id: "web.onesignal.auto.3bb557bb-091e-4595-bac2-e40949e4ba5a",
-      notifyButton: {
-        enable: true,
-      },
-    });
-  });
-</script>
+
 </head>
 <body>
 
@@ -154,69 +142,8 @@
 <script type="module" src="slider.js"></script>
 <script type="module" src="topMovies.js"></script>
   <script type="module" src="feedback.js"> </script>
-<script type="module" src="firebase-messaging-sw.js"> </script>
+<script type="module" src="userCount.js"> </script>
 
-<script type="module">
-  // Import Firebase SDKs
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
-  import { getMessaging, getToken, onMessage } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-messaging.js";
-
-  // Your Firebase Configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyBsz-82MDaibWnIBUpoykrZHyJW7UMedX8",
-    authDomain: "movies-bee24.firebaseapp.com",
-    databaseURL: "https://movies-bee24-default-rtdb.firebaseio.com",
-    projectId: "movies-bee24",
-    storageBucket: "movies-bee24.appspot.com",
-    messagingSenderId: "1080659811750",
-    appId: "1:1080659811750:web:c1ef7d4dacc3ab17edc367",
-    measurementId: "G-T68EYGG3SF"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-
-  // Initialize Firebase Messaging
-  const messaging = getMessaging(app);
-
-  // VAPID Key
-  const vapidKey = "BPJj402uGCBxGBV9_JQO6UTnx5O3WLgDsHxuIw2oca8xHWHNFAbQVM6cDRc3KnuzWzLEPeevsJy2QF3aOHal1mI";
-
-  // Request permission for notifications
-  async function requestNotificationPermission() {
-    try {
-      const permission = await Notification.requestPermission();
-      if (permission === 'granted') {
-        console.log('Notification permission granted.');
-
-        // Get the token
-        const currentToken = await getToken(messaging, { vapidKey: vapidKey });
-        if (currentToken) {
-          console.log('Token:', currentToken);
-          // Send the token to your server
-        } else {
-          console.log('No registration token available. Request permission to generate one.');
-        }
-      } else {
-        console.error('Notification permission denied.');
-      }
-    } catch (err) {
-      console.error('Error getting notification permission:', err);
-    }
-  }
-
-  // Request notification permission on page load
-  requestNotificationPermission();
-
-  // Handle incoming messages
-  onMessage(messaging, (payload) => {
-    console.log('Message received: ', payload);
-    // Handle the notification content in the payload
-  });
-      </script>
-    
       
 </body>
 </html>
